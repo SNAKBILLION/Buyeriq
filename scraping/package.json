@@ -1,0 +1,45 @@
+{
+  "name": "buyeriq-scraping",
+  "version": "1.0.0",
+  "description": "BuyerIQ Data Collection & Scraping Infrastructure",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "worker:trade": "node src/workers/trade-data.worker.js",
+    "worker:shipment": "node src/workers/shipment.worker.js",
+    "worker:marketplace": "node src/workers/marketplace.worker.js",
+    "worker:supplier": "node src/workers/supplier.worker.js",
+    "worker:buyer": "node src/workers/buyer-discovery.worker.js",
+    "worker:all": "concurrently \"npm:worker:*\"",
+    "scheduler": "node src/scheduler/cron.js",
+    "seed": "node scripts/seed-queues.js",
+    "test:comtrade": "node scripts/test-connector.js comtrade",
+    "test:importyeti": "node scripts/test-connector.js importyeti",
+    "test:amazon": "node scripts/test-connector.js amazon",
+    "migrate": "node scripts/migrate.js",
+    "ai:run": "node scripts/run-ai-engine.js",
+    "ai:api": "node scripts/start-ai-api.js",
+    "ai:full": "node scripts/start-ai-api.js --with-engine"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "bullmq": "^5.1.0",
+    "ioredis": "^5.3.2",
+    "pg": "^8.12.0",
+    "playwright": "^1.42.0",
+    "node-cron": "^3.0.3",
+    "axios": "^1.6.7",
+    "cheerio": "^1.0.0",
+    "winston": "^3.11.0",
+    "dotenv": "^16.4.1",
+    "p-limit": "^5.0.0",
+    "p-retry": "^6.2.0",
+    "user-agents": "^1.1.193",
+    "concurrently": "^8.2.2",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

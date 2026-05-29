@@ -1,0 +1,31 @@
+{
+  "name": "buyeriq",
+  "private": true,
+  "version": "4.7.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.99.1",
+    "lucide-react": "^1.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^24.1.0",
+    "vite": "^6.1.0",
+    "vitest": "^1.6.0"
+  },
+  "overrides": {
+    "esbuild": ">=0.24.2"
+  }
+}

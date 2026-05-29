@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BuyerIQ — Buyer Intelligence Platform by Senses Lifestyle" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>BuyerIQ — Senses Lifestyle</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts: Outfit (headings) + DM Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #0a0a0a;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      button, input, select, textarea, a { transition: all 0.2s ease; }
+      button:active { transform: scale(0.97); }
+      input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: #d4a05a !important;
+        box-shadow: 0 0 0 3px rgba(212, 160, 90, 0.15);
+      }
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #444; }
+      ::selection { background: rgba(212, 160, 90, 0.3); color: #fff; }
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

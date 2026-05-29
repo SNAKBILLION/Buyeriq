@@ -1,0 +1,55 @@
+import Joi from "joi";
+
+export const createSchema = Joi.object({
+  buyer_id: Joi.string().max(200),
+  product_id: Joi.string().max(200),
+  product_name: Joi.string().max(200).required(),
+  wood_type: Joi.string().max(50).allow(""),
+  finish_type: Joi.string().max(50).allow(""),
+  quantity: Joi.number().integer().min(1).required(),
+  unit: Joi.string().max(20).default("piece"),
+  fob_per_unit: Joi.number().min(0).required(),
+  fob_currency: Joi.string().max(3).default("USD"),
+  total_usd: Joi.number().min(0),
+  exchange_rate: Joi.number().min(0),
+  total_inr: Joi.number().min(0),
+  est_weight_kg: Joi.number().min(0),
+  est_cbm: Joi.number().min(0),
+  est_containers: Joi.number().integer().min(0),
+  incoterm: Joi.string().max(10).default("FOB"),
+  origin_port: Joi.string().max(100).default("Nhava Sheva"),
+  buyer_payment_terms: Joi.string().max(100),
+  buyer_lead_time: Joi.string().max(50),
+  est_retail_price: Joi.number().min(0),
+  est_buyer_margin_pct: Joi.number(),
+  china_fob_range: Joi.string().max(50),
+  vietnam_fob_range: Joi.string().max(50),
+  india_rival_fob_range: Joi.string().max(50),
+  status: Joi.string().valid("draft", "sent", "accepted", "rejected", "expired").default("draft"),
+  valid_until: Joi.date(),
+  notes: Joi.string().allow(""),
+}).options({ allowUnknown: false });
+
+export const updateSchema = Joi.object({
+  product_name: Joi.string().max(200),
+  wood_type: Joi.string().max(50).allow(""),
+  finish_type: Joi.string().max(50).allow(""),
+  quantity: Joi.number().integer().min(1),
+  fob_per_unit: Joi.number().min(0),
+  total_usd: Joi.number().min(0),
+  exchange_rate: Joi.number().min(0),
+  total_inr: Joi.number().min(0),
+  status: Joi.string().valid("draft", "sent", "accepted", "rejected", "expired"),
+  notes: Joi.string().allow(""),
+}).options({ allowUnknown: false });
+
+export const querySchema = Joi.object({
+  page: Joi.number().integer().min(1),
+  limit: Joi.number().integer().min(1).max(1000),
+  sort_by: Joi.string(),
+  sort_order: Joi.string().valid("asc", "desc"),
+  search: Joi.string().max(200),
+  buyer_id: Joi.string(),
+  product_id: Joi.string(),
+  status: Joi.string(),
+}).options({ allowUnknown: true });
